@@ -33,3 +33,11 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     Owner   = "Terraform"
   }
 }
+
+terraform {
+  backend "s3" {
+    bucket = "facilittei-terraform-state"
+    key    = "facilittei.terraform.tfstate"
+    region = "us-east-1"
+  }
+}
