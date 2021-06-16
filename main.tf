@@ -18,4 +18,11 @@ resource "aws_ecr_repository" "images" {
   image_scanning_configuration {
     scan_on_push = true
   }
+
+  tags = {
+    Name        = "Container Registry"
+    Project     = var.project
+    Owner       = "Terraform"
+    Environment = var.environment
+  }
 }

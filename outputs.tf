@@ -24,17 +24,36 @@ output "vpc_id" {
 }
 
 output "vpc_subnets_private" {
-  value = module.vpc.private_subnets
+  description = "The VPC private subnets IDs."
+  value       = module.vpc.private_subnets
 }
 
 output "vpc_subnets_public" {
-  value = module.vpc.public_subnets
+  description = "The VPC public subnets IDs."
+  value       = module.vpc.public_subnets
 }
 
 output "vpc_igw_id" {
-  value = module.vpc.igw_id
+  description = "The VPC internet gateway ID."
+  value       = module.vpc.igw_id
 }
 
 output "vpc_nat_ids" {
-  value = module.vpc.nat_ids
+  description = "The VPC network address translation IDs."
+  value       = module.vpc.nat_ids
+}
+
+output "sg_lb" {
+  description = "The security group for the load balancer."
+  value       = aws_security_group.lb.id
+}
+
+output "sg_api" {
+  description = "The security group for the API."
+  value       = aws_security_group.api.id
+}
+
+output "sg_db" {
+  description = "The security group for the database."
+  value       = aws_security_group.db.id
 }
