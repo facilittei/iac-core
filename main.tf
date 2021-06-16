@@ -10,3 +10,12 @@ terraform {
 provider "aws" {
   region = var.region
 }
+
+resource "aws_ecr_repository" "images" {
+  name                 = lower(var.project)
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
