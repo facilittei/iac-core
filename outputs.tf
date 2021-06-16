@@ -45,15 +45,15 @@ output "vpc_nat_ids" {
 
 output "sg_lb" {
   description = "The security group for the load balancer."
-  value       = aws_security_group.lb.id
+  value       = module.ecs.sg_lb
 }
 
 output "sg_api" {
   description = "The security group for the API."
-  value       = aws_security_group.api.id
+  value       = module.ecs.sg_api
 }
 
 output "sg_db" {
   description = "The security group for the database."
-  value       = aws_security_group.db.id
+  value       = module.ecs.sg_lb
 }

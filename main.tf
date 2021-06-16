@@ -11,18 +11,12 @@ provider "aws" {
   region = var.region
 }
 
-resource "aws_ecr_repository" "images" {
-  name                 = lower(var.project)
-  image_tag_mutability = "MUTABLE"
-
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-
-  tags = {
-    Name        = "Container Registry"
-    Project     = var.project
-    Owner       = "Terraform"
-    Environment = var.environment
-  }
+module "ecs" {
+  source              = "./modules/ecs"
+  project             = var.project
+  environment         = var.environment
+  image_id            = var.image_id
+  instance_type       = var.instance_type
+  vpc_id              = module.vpc.vpc_id
+  vpc_subnets_private = module.vpc.private_subnets
 }
