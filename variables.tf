@@ -12,3 +12,13 @@ variable "environment" {
   type        = string
   description = "The environment provisioned."
 }
+
+variable "cidr" {
+  description = "The IPv4 CIDR block of the VPC."
+  default     = "10.0.0.0/16"
+}
+
+variable "azs" {
+  description = "The list of availability zones to be provisioned."
+  default     = ["us-east-1a", "us-east-1b"]
+}
