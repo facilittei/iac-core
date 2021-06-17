@@ -57,3 +57,18 @@ output "sg_db" {
   description = "The security group for the database."
   value       = module.ecs.sg_lb
 }
+
+output "ecs_lb_dns" {
+  description = "The DNS name of the load balancer."
+  value       = module.ecs.lb_dns
+}
+
+output "asg_vpc_zone_identifier" {
+  description = "The availability zones of the Auto Scaling Group."
+  value       = module.ecs.asg_vpc_zone_identifier
+}
+
+output "asg_availability_zones" {
+  description = "The VPC zone identifier."
+  value       = module.ecs.asg_availability_zones
+}
