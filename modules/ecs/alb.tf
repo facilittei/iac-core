@@ -2,8 +2,17 @@ resource "aws_lb" "lb" {
   name               = "${lower(var.project)}-${var.environment}"
   load_balancer_type = "application"
   internal           = false
-  subnets            = var.vpc_subnets_public
   security_groups    = [aws_security_group.lb.id]
+
+  subnet_mapping {
+    subnet_id     = var.vpc_subnets_public.0
+    allocation_id = var.vpc_nat_ids.0
+  }
+
+  subnet_mapping {
+    subnet_id     = var.vpc_subnets_public.1
+    allocation_id = var.vpc_nat_ids.1
+  }
 
   tags = {
     Name        = "Load Balancer"

@@ -19,4 +19,5 @@ module "ecs" {
   vpc_id              = module.vpc.vpc_id
   vpc_subnets_private = module.vpc.private_subnets
   vpc_subnets_public  = module.vpc.public_subnets
+  vpc_nat_ids         = module.vpc.nat_ids
 }
