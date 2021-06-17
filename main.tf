@@ -15,7 +15,6 @@ module "ecs" {
   source              = "./modules/ecs"
   project             = var.project
   environment         = var.environment
-  image_id            = var.image_id
   instance_type       = var.instance_type
   vpc_id              = module.vpc.vpc_id
   vpc_subnets_private = module.vpc.private_subnets

@@ -23,11 +23,6 @@ variable "azs" {
   default     = ["us-east-1a", "us-east-1b"]
 }
 
-variable "image_id" {
-  description = "The Amazon Machine Image ID."
-  default     = "ami-0aeeebd8d2ab47354"
-}
-
 variable "instance_type" {
   description = "The Amazon Machine Image instance type."
   default     = "t2.micro"
