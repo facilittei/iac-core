@@ -1,0 +1,71 @@
+[
+    {
+        "name": "nginx",
+        "image": "",
+        "executionRoleArn": "ecsTaskExecutionRole",
+        "cpu": 128,
+        "memory": 256,
+        "networkMode": "awsvpc",
+        "portMappings": [
+            {
+                "containerPort": 80,
+                "hostPort": 80,
+                "protocol": "tcp"
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "api",
+                "awslogs-region": "us-east-1",
+                "awslogs-stream-prefix": "facilittei"
+            }
+        },
+        "links": [
+            "php-fpm"
+        ],
+        "dependsOn": [
+            {
+                "containerName": "php-fpm",
+                "condition": "START"
+            }
+        ],
+        "essential": true
+    },
+    {
+        "name": "php-fpm",
+        "image": "",
+        "executionRoleArn": "ecsTaskExecutionRole",
+        "cpu": 256,
+        "memory": 512,
+        "networkMode": "awsvpc",
+        "portMappings": [
+            {
+                "containerPort": 9000
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "api",
+                "awslogs-region": "us-east-1",
+                "awslogs-stream-prefix": "facilittei"
+            }
+        },
+        "secrets": [
+            {
+                "name": "APP_ENV",
+                "valueFrom": ""
+            },
+            {
+                "name": "APP_DEBUG",
+                "valueFrom": ""
+            },
+            {
+                "name": "APP_KEY",
+                "valueFrom": ""
+            }
+        ],
+        "essential": true
+    }
+]

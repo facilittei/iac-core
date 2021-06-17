@@ -19,4 +19,5 @@ module "ecs" {
   instance_type       = var.instance_type
   vpc_id              = module.vpc.vpc_id
   vpc_subnets_private = module.vpc.private_subnets
+  vpc_subnets_public  = module.vpc.public_subnets
 }
