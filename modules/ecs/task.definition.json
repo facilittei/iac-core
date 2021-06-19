@@ -1,7 +1,7 @@
 [
     {
         "name": "nginx",
-        "image": "",
+        "image": "530407156129.dkr.ecr.us-east-1.amazonaws.com/nginx:latest",
         "executionRoleArn": "ecsTaskExecutionRole",
         "cpu": 128,
         "memory": 256,
@@ -34,7 +34,7 @@
     },
     {
         "name": "php-fpm",
-        "image": "",
+        "image": "530407156129.dkr.ecr.us-east-1.amazonaws.com/php-fpm:latest",
         "executionRoleArn": "ecsTaskExecutionRole",
         "cpu": 256,
         "memory": 512,
