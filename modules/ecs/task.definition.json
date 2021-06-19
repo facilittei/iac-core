@@ -55,15 +55,15 @@
         "secrets": [
             {
                 "name": "APP_ENV",
-                "valueFrom": ""
+                "valueFrom": "dev"
             },
             {
                 "name": "APP_DEBUG",
-                "valueFrom": ""
+                "valueFrom": "true"
             },
             {
                 "name": "APP_KEY",
-                "valueFrom": ""
+                "valueFrom": "12345678"
             }
         ],
         "essential": true
